@@ -41,7 +41,7 @@ let embed = new Discord.RichEmbed()
                 
                                  .addField('شكرا لدخولك سيرفر', `${member.guild.name}`,true)
                                    
- .setFooter("Dokhan Network - شبكة دخان")
+ .setFooter("arbia bot")
     .setTimestamp()
 
   channel.sendEmbed(embed);
@@ -74,7 +74,7 @@ let embed = new Discord.RichEmbed()
                 
                                  .addField('شكرا لدخولك سيرفر', `${member.guild.name}`,true)
                                    
- .setFooter("Dokhan Network - شبكة دخان")
+ .setFooter("arbia bot")
     .setTimestamp()
 
   channel.sendEmbed(embed);
@@ -260,7 +260,7 @@ if(!gg) return;
 if(gg) {
 gg.send({embed : new Discord.RichEmbed()
 .setDescription(`**  الأيدي :question:  : \n ${lan}\nالمميزات :link: :\n ${md} \nعدد السيرفرات والمستخدمين :question: :\n ${br}  \nتم التقديم بواسطة  : <@${message.author.id}> **`)  
-          .setFooter(`Dokhan Network - شبكة دخان.`)
+          .setFooter(`arbia bot`)
 .setTimestamp()
 });
 }        
@@ -1079,4 +1079,6 @@ if (message.content.startsWith(prefix + 'points')) { // ! EpicHema ★#6090
     if (err) console.error(err) // ! EpicHema ★#6090
   }) // ! EpicHema ★#6090
 }); // ! EpicHema ★#6090
-client.login("NDA3OTUyMzcxMzMxODkxMjEx.DlnxoA.amYmxecBXc2mSdpkI1mXiY4jhpc");
+
+
+client.login(process.env.BOT_TOKEN);// لا تغير فيها شيء
