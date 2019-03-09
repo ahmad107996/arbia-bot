@@ -155,7 +155,8 @@ client.on('message', message => {
 	 message.guild.createChannel('giveaway', 'text') ///by-hosam(galaxy-bot-dev)🚫
 	 message.guild.createChannel('shop', 'text')
 	 message.guild.createChannel('pic', 'text')
-	 
+	 	 message.guild.createChannel('التقديمات', 'text')
+
 
 
      
