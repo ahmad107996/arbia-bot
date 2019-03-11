@@ -1,6 +1,9 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const prefix = '!';
+const fs = require("fs");
+const moment = require("moment");
+
   client.on('ready', () => {
         client.user.setGame(`${prefix}help-all ||user : ${client.users.size}||server : ${client.guilds.size} `,'https://www.twitch.tv/TEST-Broadcast');
           console.log('Im Ready!');
