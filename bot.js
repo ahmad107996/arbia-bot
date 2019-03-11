@@ -11,6 +11,24 @@ const moment = require("moment");
         });
 
 
+client.on('message', message => {
+    if (!message.guild) return;
+    if (message.content.startsWith("رابط")) {
+
+        message.channel.createInvite({
+        thing: true,
+        maxUses: 5,
+        maxAge: 86400
+    }).then(invite =>
+      message.author.sendMessage(invite.url)
+    )
+  message.channel.send(`** تم أرسال الرابط برسالة خاصة **`)
+
+      message.author.send(`**مدة الرابط : يـوم
+ عدد استخدامات الرابط : 5 **`)
+    }
+});
+
 //-------buy vip-----------\\
 let vipKeys = JSON.parse(fs.readFileSync("./vipKeys.json", "utf8"));
 client.on("message", msg=>{
