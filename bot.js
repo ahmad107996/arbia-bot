@@ -620,22 +620,19 @@ client.on('message', msg => {
     }
 });
 client.on('message', message => {
-      if(message.content.startsWith(prefix + "help-all")) {
+      if(message.content.startsWith(prefixUsed + "help-all")) {
   const embed = new Discord.RichEmbed()
      .setColor("RANDOM")
      .addField(`**__أوامر البوت__**`,`
 ╔╣help-general╠╗  الاوامر العامه
 ╔╣help-admin╠╗    الاوامر الاداره
 ╔╣help-game╠╗      اوامر الاعاب
-
 prefix = ${prefix}
      ping = ${Date.now() - message.createdTimestamp}ms
      for help = ${client.user.tag}
 `)
- message.channel.send({embed});
-     }
-    });
-client.on('message', message => {
+  
+  client.on('message', message => {
       if(message.content.startsWith(prefix + "help-game")) {
   const embed = new Discord.RichEmbed()
      .setColor("RANDOM")
