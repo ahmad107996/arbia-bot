@@ -35,7 +35,6 @@ client.on("ready", ()=>{
 });
 client.on("guildCreate", g=>setPrefix(g.id));
 client.on("message", async msg=>{
-    let msg = message;
   let [command, ...args] = msg.content.split(/ +/g);
   command = command.toLowerCase();
   let prefixs = prefixes[msg.guild.id];
