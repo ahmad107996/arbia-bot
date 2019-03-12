@@ -620,7 +620,7 @@ client.on('message', msg => {
     }
 });
 client.on('message', message => {
-      if(message.content.startsWith(prefixUsed + "help-all")) {
+      if(message.content.startsWith(prefix + "help-all")) {
   const embed = new Discord.RichEmbed()
      .setColor("RANDOM")
      .addField(`**__أوامر البوت__**`,`
