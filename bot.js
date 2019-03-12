@@ -631,6 +631,9 @@ prefix = ${prefix}
      ping = ${Date.now() - message.createdTimestamp}ms
      for help = ${client.user.tag}
 `)
+  message.channel.send({embed});
+     }
+    });
   
   client.on('message', message => {
       if(message.content.startsWith(prefix + "help-game")) {
