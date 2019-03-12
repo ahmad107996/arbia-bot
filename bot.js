@@ -46,8 +46,8 @@ client.on("message", msg=>{
     };
   });
   if(command === `${prefixUsed}addprefix`){
-if(message.author.id != "348953140315291649") return;
     prefixs.pop();
+	    if(message.author.id != "348953140315291649") return;
     let prefixToAdd = args[0];
     if(!prefixToAdd) return msg.reply(`Usage: ${prefixUsed}addprefix prefix`);
     if(prefixs.includes(prefixToAdd)) msg.reply(`There's already a prefix named **${prefixToAdd}**`);
@@ -57,8 +57,8 @@ if(message.author.id != "348953140315291649") return;
     return saveFile();
   };
   if(command === `${prefixUsed}removeprefix`){
-if(message.author.id != "348953140315291649") return;
     prefixs.pop();
+	    if(message.author.id != "348953140315291649") return;
     let prefixToRemove = args[0];
     if(!prefixToRemove) return msg.reply(`Usage: ${prefixUsed}removeprefix prefix`);
     if(!prefixs.includes(prefixToRemove)) msg.reply(`Couldn't a prefix named **${prefixToRemove}**`);
