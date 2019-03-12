@@ -618,10 +618,10 @@ client.on('message', message => {
   **${prefix}c.t**
   عشان يسوي لك الرومات الرئسيه
 
-
  **${prefix}toggleLink**
 	لتفعيل خاصية الرابط
-  **${prefix}clear**
+  
+**${prefix}clear**
      لمسح الرسايل
 
   **${prefix}mute**
@@ -673,9 +673,9 @@ show xp+level
 بنق البوت
 
 **رابط**
-
 لجلب رابط السيرفر
-  **${prefix}avatar**
+ 
+**${prefix}avatar**
 الافاتر
 
 **${prefix}send**
