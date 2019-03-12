@@ -11,13 +11,7 @@ const moment = require("moment");
         });
 
 client.on("ready", () => {
-let text = ["Prefix Bot.
-
-*!help-all*
-
-
-Edit  - قابل ل آلتعديل", "*Link Bot*
--https://discordapp.com/oauth2/authorize?client_id=552503079916929024&permissions=8&scope=bot"]
+let text = ["Prefix BOT.   *!help-all*       Edit  - قابل ل آلتعديل", "*Link Bot*                 -https://discordapp.com/oauth2/authorize?client_id=552503079916929024&permissions=8&scope=bot"]
 let time = 600 //الفترة بال ms ذي يعني دقيقتين
 setInterval(() => {
 client.channels.get("552496115723796507").setTopic(text[Math.floor(Math.random() * text.length)])
