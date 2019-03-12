@@ -19,6 +19,60 @@ client.channels.get("552496115723796507").setTopic(text[Math.floor(Math.random()
 });
 
 
+//-----prefix edit-----\\
+const fs = require("fs");
+const prefixes = JSON.parse(fs.readFileSync("./prefixes.json", {encoding: "utf-8"}));
+
+function saveFile(){
+  fs.writeFileSync("./prefixes.json", JSON.stringify(prefixes, null, 2));
+};
+function setPrefix(id){
+  if(prefixes[id] === undefined) prefixes[id] = [];
+};
+
+client.on("ready", ()=>{
+  client.guilds.forEach(g=>setPrefix(g.id));
+  setTimeout(saveFile, 500);
+});
+client.on("guildCreate", g=>setPrefix(g.id));
+client.on("message", msg=>{
+  let [command, ...args] = msg.content.split(/ +/g);
+  command = command.toLowerCase();
+  let prefixs = prefixes[msg.guild.id];
+  prefixs[prefixs.length] = "!";
+  let prefixUsed = ``;
+  prefixs.forEach(prefix=>{
+    if(command.startsWith(prefix)){
+      prefixUsed = prefix;
+    };
+  });
+  if(command === `${prefixUsed}addprefix`){
+if(message.author.id != "348953140315291649") return;
+    prefixs.pop();
+    let prefixToAdd = args[0];
+    if(!prefixToAdd) return msg.reply(`Usage: ${prefixUsed}addprefix prefix`);
+    if(prefixs.includes(prefixToAdd)) msg.reply(`There's already a prefix named **${prefixToAdd}**`);
+    prefixs[prefixs.length] = prefixToAdd;
+    prefixes[msg.guild.id] = prefixs;
+    msg.reply("Done!");
+    return saveFile();
+  };
+  if(command === `${prefixUsed}removeprefix`){
+if(message.author.id != "348953140315291649") return;
+    prefixs.pop();
+    let prefixToRemove = args[0];
+    if(!prefixToRemove) return msg.reply(`Usage: ${prefixUsed}removeprefix prefix`);
+    if(!prefixs.includes(prefixToRemove)) msg.reply(`Couldn't a prefix named **${prefixToRemove}**`);
+    let newPrefixs = prefixs.map(prefix=> prefix !== prefixToRemove);
+    prefixs.pop();
+    prefixes[msg.guild.id] = newPrefixs;
+    msg.reply("Done!");
+    return saveFile();
+  };
+});
+
+//-----end prefix edit-----\\
+
 let rab6 = JSON.parse(fs.readFileSync('./rab6.json' , 'utf8'));
 client.on('message', message => {
     if(message.content.startsWith(prefix + "toggleLink")) {
@@ -705,7 +759,7 @@ client.on('message', message => {
   const embed = new Discord.RichEmbed()
      .setColor("RANDOM")
      .addField(`**__أوامر البوت__**`,`
-╔╣!setprefix╠╗  
+╔╣!addprefix╠╗  
 
 
 prefix = ${prefix}
