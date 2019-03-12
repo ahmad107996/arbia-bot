@@ -11,23 +11,65 @@ const moment = require("moment");
         });
 
 
+let rab6 = JSON.parse(fs.readFileSync('./rab6.json' , 'utf8'));
 client.on('message', message => {
-    if (!message.guild) return;
-    if (message.content.startsWith("رابط")) {
+    if(message.content.startsWith(prefix + "toggleLink")) {
+        if(!message.channel.guild) return message.reply('**This Command Only For Servers**');
+        if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('**Sorry But You Dont Have Permission** `MANAGE_GUILD`' );
+        if(!rab6[message.guild.id]) rab6[message.guild.id] = {
+          onoff: 'Off'
+        }
+          if(rab6[message.guild.id].onoff === 'Off') return [message.channel.send(`**✅ The Invite Link Cmd Is __𝐎𝐍__ !**`), rab6[message.guild.id].onoff = 'On']
+          if(rab6[message.guild.id].onoff === 'On') return [message.channel.send(`**⛔ The Invite Link Cmd Is __𝐎𝐅𝐅__ !**`), rab6[message.guild.id].onoff = 'Off']
+          fs.writeFile("./rab6.json", JSON.stringify(rab6), (err) => {
+            if (err) console.error(err)
+            .catch(err => {
+              console.error(err);
+          });
+            });
+          }
+          
+        })
+const coolDown = new Set();
+client.on('message', message => {
+  
+      if (message.content.startsWith("رابط")) {
+                  if(!message.channel.guild) return message.reply('**This Command Only For Servers**');
+                      if(!rab6[message.guild.id]) rab6[message.guild.id] = {
+        onoff: 'Off'
+            }
+        if(rab6[message.guild.id].onoff === 'Off') return;
+        if(coolDown.has(message.author.id)) return message.channel.send(`**:stopwatch: | ${message.author.username}, your invite :yen: link refreshes in \`\`1 Day\`\`.**`);
 
-        message.channel.createInvite({
-        thing: true,
-        maxUses: 5,
-        maxAge: 86400
-    }).then(invite =>
-      message.author.sendMessage(invite.url)
-    )
-  message.channel.send(`** تم أرسال الرابط برسالة خاصة **`)
+    message.channel.createInvite({
+  
+          thing: true,
+  
+          maxUses: 5,
+  
+          maxAge: 86400
+  
+      }).then(invite =>
+  
+        message.author.sendMessage(invite.url)
+  
+      )
+  
+    message.channel.send("**تم ارسال الرابط برسالة خاصة**")   .then(() => {     
+      coolDown.add(message.author.id);
+  });
+  
+  
+  message.author.send(`**مدة الرابط : يـوم
+  عدد استخدامات الرابط : 5**`)
+  
+      }
 
-      message.author.send(`**مدة الرابط : يـوم
- عدد استخدامات الرابط : 5 **`)
-    }
-});
+      setTimeout(() => {
+        coolDown.remove(message.author.id);
+     },86400000);
+     
+  });
 
 //-------buy vip-----------\\
 let vipKeys = JSON.parse(fs.readFileSync("./vipKeys.json", "utf8"));
@@ -576,6 +618,9 @@ client.on('message', message => {
   **${prefix}c.t**
   عشان يسوي لك الرومات الرئسيه
 
+
+ **${prefix}toggleLink**
+	لتفعيل خاصية الرابط
   **${prefix}clear**
      لمسح الرسايل
 
@@ -625,6 +670,9 @@ show xp+level
   **${prefix}ping**
 بنق البوت
 
+**رابط**
+
+لجلب رابط السيرفر
   **${prefix}avatar**
 الافاتر
 
