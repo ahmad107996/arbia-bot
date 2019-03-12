@@ -20,7 +20,6 @@ client.channels.get("552496115723796507").setTopic(text[Math.floor(Math.random()
 
 
 //-----prefix edit-----\\
-const fs = require("fs");
 const prefixes = JSON.parse(fs.readFileSync("./prefixes.json", {encoding: "utf-8"}));
 
 function saveFile(){
