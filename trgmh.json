@@ -1,0 +1,38 @@
+ [
+     {
+         "Question": "Hello",
+         "answer": ["مرحبا","مرحبًا","اهلاً"]
+     },
+     {
+         "Question": "Water",
+         "answer": ["ماء"]
+     },
+     {
+         "Question": "Watermelon",
+         "answer": ["بطيخ","حبحب"]
+     },
+     {
+         "Question": "Kill me",
+         "answer": ["اقتلني"]
+     },
+     {
+         "Question": "Milk",
+         "answer": ["حليب"]
+     },
+     {
+         "Question": "Man",
+         "answer": ["رجل"]
+     },
+     {
+         "Question": "Keyboard",
+         "answer": ["لوحة مفاتيح"]
+     },
+     {
+         "Question": "Rat",
+         "answer": ["جرذ","فار"]
+     },
+     {
+         "Question": "Key",
+         "answer": ["مفتاح"]
+     }
+ ]
