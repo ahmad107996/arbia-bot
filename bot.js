@@ -6,6 +6,11 @@ const prefix = '!';
 const fs = require("fs");
 const moment = require("moment");
 
+ client.on('ready', () => {
+        client.user.setGame(`${prefix}help-all ||user : ${client.users.size}||server : ${client.guilds.size} `,'https://www.twitch.tv/TEST-Broadcast');
+          console.log('Im Ready!');
+  
+        });
 
 client.on("ready", () => {
 let text = ["Prefix BOT. *!help-all*   Edit  - قابل ل آلتعديل", "*Link Bot*     -https://discordapp.com/oauth2/authorize?client_id=552503079916929024&permissions=8&scope=bot"]
