@@ -657,6 +657,8 @@ client.on('message', message => {
   **${prefix}tv**
 لعمل روم موقت
 
+**${prefix}toggleLink**
+لتفعيل خاصيه الرابط
      ping = ${Date.now() - message.createdTimestamp}ms
      for help = ${client.user.tag}
 `)
